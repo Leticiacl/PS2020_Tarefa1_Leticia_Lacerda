@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script> -->
+</head>
+
+<body>
+    
+    <script>
+
+        var engComp = {
+           nome: 'Engenharia da Computação',
+           cargaHoraria: 3630,
+           periodos: 10,  
+        } 
+
+        var ufop = {
+            cursos: [engComp],
+        } 
+   
+        var republica = {
+           nome: 'Orfanato',
+           idade: 10,
+           moradores: 5,  
+        }
+   
+        var pessoa = {
+           nome: 'Ana',
+           curso: engComp,
+           idade: 17,
+        }
+   
+        var pessoa1 = {
+           nome: 'Pedro',
+           curso: engComp,
+           idade: 20,
+        }
+   
+        var pessoa2 = {
+           nome: 'Paulo',
+           curso: engComp,
+           idade: 23,
+           rep: republica,
+        }
+   
+        var pessoa3 = {
+           nome: 'Armando',
+           curso: engComp,
+           idade: 17,
+           rep: republica,
+        }
+   
+        var garcom = {
+           nome: 'Andre',
+           funcLocal: 'Clube da cerveja',
+
+            checarIDs: function (pessoa){
+   
+                if(pessoa.idade >= 18){  
+                    return ` ${pessoa.nome} pode tomar cerveja`;
+                }else{
+                    return ` ${pessoa.nome} vai tomar Coca-Cola`;
+                }
+            }               
+        }
+   
+        console.log(garcom.checarIDs(pessoa));
+        console.log(garcom.checarIDs(pessoa3));
+
+
+       </script> 
+
+</body>
+
+</html>
