@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+    <!-- <script src='main.js'></script> -->
+</head>
+<body>
+    
+    <script>
+
+    class Curso{
+
+        constructor(name, carga, periodos){
+            this.name = name;
+            this.carga = carga;
+            this.periodos = periodos;
+        }
+    }
+
+    var curso1 = new Curso ("Engenharia de computação", 3630, 10);
+    var curso2 = new Curso ("Sistemas de informação", 3000, 8);
+
+    class Universidade{
+
+        constructor(name, cnpj, cursos){
+            this.name = name;
+            this.cnpj = cnpj;
+            this.curso = cursos;
+        }
+    }
+
+    var universidade = new Universidade("UFOP", 47182486/9504.00, [curso1,curso2]);
+
+    class Republica{
+
+        constructor(name, age, quantMoradores){
+        this.name = name; 
+        this.age = age;
+        this.quantMoradores = quantMoradores;
+        }
+    }
+
+    var rep = new Republica("Orfanato", 10, 5);
+
+    class Bebida{
+
+        constructor(name, valor){
+        this.name = name; 
+        this.valor = valor;
+        }
+    }
+
+    var cerveja = new Bebida("Skol", 2.89);
+    var refri = new Bebida ( "Coca-Cola" , 4.5 ) ;
+
+    class Pedido{
+
+        constructor(pessoa, quantidade, bebida){
+        this.pessoa = pessoa; 
+        this.quantidade = quantidade;
+        this.bebida = bebida;
+        }
+    }
+
+    pedido1 = new Pedido(p1, 1, cerveja);
+    pedido2 = new Pedido(p2, 1, refri);
+    pedido3 = new Pedido(p3, 1, cerveja);        
+    pedido4 = new Pedido(p4, 1, refri);
+
+    class Pessoa{
+
+        constructor(name, age){
+            this.name = name; 
+            this.age = age; 
+            this.universidade = universidade;
+            this.amigos = [];
+            this.irmaos = [];     
+        }
+
+        addAmigo(amigo){
+            return this.amigos.push(amigo);
+        }
+        
+        addIrmao(irmao){
+            return this.irmaos.push(irmao);
+        }
+
+        pedirConta(){
+            calcularTotal(pedido1, pedido2, pedido3, pedido4);
+            calcularIndividual(pedido1, pedido2, pedido3, pedido4);
+        }
+
+    } 
+
+    var p1 = new Pessoa("Pedro", 20);
+    var p2 = new Pessoa("Ana", 17);
+    var p3 = new Pessoa("Paulo", 23);
+    var p4 = new Pessoa("Armando", 17);
+
+    p1.addIrmao(p2);
+    p2.addIrmao(p1);
+
+    p1.addAmigo(p2,p3,p4);  
+    p2.addAmigo(p1,p3,p4);
+    p3.addAmigo(p1,p2,p4);
+    p4.addAmigo(p1,p2,p3);
+
+    p1.universidade = universidade;
+    p2.universidade = universidade;
+
+    p3.rep = rep;
+    p4.rep = rep;
+
+    var garcom = {
+
+        nome: 'Andre',
+        funcLocal: 'Clube da cerveja',
+
+        checarIDs: function (pessoa){
+   
+            if(pessoa.idade >= 18){  
+                return `${pessoa.nome} pode tomar cerveja`;
+            }else{
+                return `${pessoa.nome} vai tomar Coca-Cola`;
+            }
+        }               
+    }
+
+    function calcularTotal(pedido1, pedido2, pedido3, pedido4){ 
+        return `A conta deu R$ + ${pedido1.bebida.valor + pedido2.bebida.valor + pedido3.bebida.valor + pedido4.bebida.valor} + galerinha`;             
+    }
+            
+    function calcularIndividual(pedido1, pedido2, pedido3, pedido4) {
+        return `A conta deu R$ + ${(pedido1.bebida.valor + pedido2.bebida.valor + pedido3.bebida.valor + pedido4.bebida.valor)/4} + pra cada um`;
+    }
+
+
+    </script>
+
+</body>
+</html>
